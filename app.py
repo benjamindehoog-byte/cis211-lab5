@@ -20,16 +20,19 @@ sample_sales = {
 
 
 def apply_discount(subtotal):
-    """Return the remaining item subtotal after any eligible discount."""
-    # TODO 1: Follow Step 4. Replace pass with your calculation and return.
-    pass
-
+     """Return the remaining item subtotal after any eligible discount."""
+    if subtotal >=50:
+        return round(subtotal * 0.9, 2)
+    else:
+        return subtotal
 
 def shipping_fee(subtotal):
-    """Return the Delivery fee, using the ORIGINAL item subtotal."""
-    # TODO 2: Follow Step 4. Replace pass with your decision and return.
-    pass
-
+      """Return the Delivery fee, using the ORIGINAL item subtotal."""
+    if subtotal >= 35:
+        return 0.0
+    else:
+        return 5.99
+  
 
 st.title("Bright Bakery Interactive Order Calculator")
 st.caption("A class practice app that calculates a quote.")
