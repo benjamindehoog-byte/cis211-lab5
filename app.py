@@ -72,11 +72,28 @@ total = discounted_subtotal + delivery_fee
 # TODO 5 - Step 7: Show the quote in two columns with dollars to 2 decimals.
 # Include product, quantity, unit price, fulfillment, subtotal, discount,
 # delivery fee and final total. Keep this outside the button block.
-
+st.header("Your Order Quote")
+left, right = st.columns(2)
+with left:
+    st.subheader("Order Details")
+    st.write(f"Product: {product}")
+    st.write(f"Quantity: {quantity}")
+    st.write(f"Unit Price: ${unit_price:.2f}")
+    st.write(f"Fulfillment: {fulfillment}")
+with right:
+    st.subheader("Order Summary")
+    st.write(f"Subtotal: ${subtotal:.2f}")
+    st.write(f"Discount Amount: ${discount_amount:.2f}")
+    st.write(f"Delivery Fee: ${delivery_fee:.2f}")
+    st.write(f"Final Total: ${total:.2f}")
 
 # TODO 6 - Step 8: Build and display the menu table from the menu dictionary.
 # Add a clearly labeled fictional sample-sales chart controlled by show_chart.
-
+st.header("Bakery Menu")
+st.table(menu)
+st.header("Fictional Sample Sales")
+if show_chart:
+    st.bar_chart(sample_sales, x="Product", y="Units sold")
 
 # TODO 7 - Step 9: Add a Check quote button.
 # Warn if customer_name is blank or spaces only. Otherwise show a check message.
