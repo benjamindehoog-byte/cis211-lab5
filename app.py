@@ -98,8 +98,7 @@ if st.button("Check Quote"):
     if not customer_name.strip():
         st.warning("Please enter your name before checking the quote.")
     else:
-        st.success("Quote checked successfully. Please note that this is not an order, only an estimate. No order
-        has been placed.")
+        st.success("Quote checked successfully. This is only an estimate; no order has been placed.")
 
 # TODO 8: Test, add your own comments and remove the starter info message.
 # Do not upload your submission report or screenshots to this public repository.
