@@ -92,7 +92,10 @@ formatted_menu = {
     for product, price in menu.items()
 }
 
-st.table(formatted_menu)
+st.table({
+    "Product": list(formatted_menu.keys()),
+    "Price": list(formatted_menu.values())
+})
 st.header("Fictional Sample Sales")
 if show_chart:
     st.bar_chart(sample_sales, x="Product", y="Units sold")
