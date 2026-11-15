@@ -86,7 +86,13 @@ with right:
 # TODO 6 - Step 8: Build and display the menu table from the menu dictionary.
 # Add a clearly labeled fictional sample-sales chart controlled by show_chart.
 st.header("Bakery Menu")
-st.table(menu)
+
+formatted_menu = {
+    product: f"${price:.2f}"
+    for product, price in menu.items()
+}
+
+st.table(formatted_menu)
 st.header("Fictional Sample Sales")
 if show_chart:
     st.bar_chart(sample_sales, x="Product", y="Units sold")
