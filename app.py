@@ -18,16 +18,13 @@ sample_sales = {
     "Units sold": [18, 30, 12, 10, 15],
 }
 
-
 def apply_discount(subtotal):
-     """Return the remaining item subtotal after any eligible discount."""
     if subtotal >=50:
         return round(subtotal * 0.9, 2)
     else:
         return subtotal
 
 def shipping_fee(subtotal):
-      """Return the Delivery fee, using the ORIGINAL item subtotal."""
     if subtotal >= 35:
         return 0.0
     else:
