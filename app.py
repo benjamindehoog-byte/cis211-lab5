@@ -94,7 +94,12 @@ if show_chart:
 # TODO 7 - Step 9: Add a Check quote button.
 # Warn if customer_name is blank or spaces only. Otherwise show a check message.
 # Do not claim that an order was saved, submitted or paid for.
-
+if st.button("Check Quote"):
+    if not customer_name.strip():
+        st.warning("Please enter your name before checking the quote.")
+    else:
+        st.success("Quote checked successfully. Please note that this is not an order, only an estimate. No order
+        has been placed.")
 
 # TODO 8: Test, add your own comments and remove the starter info message.
 # Do not upload your submission report or screenshots to this public repository.
