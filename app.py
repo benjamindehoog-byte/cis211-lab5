@@ -33,7 +33,6 @@ def shipping_fee(subtotal):
     else:
         return 5.99
   
-
 st.title("Bright Bakery Interactive Order Calculator")
 st.caption("A class practice app that calculates a quote.")
 st.info("Starter file loaded. Complete the TODO sections before submitting.")
@@ -41,6 +40,19 @@ st.info("Starter file loaded. Complete the TODO sections before submitting.")
 # TODO 3 - Step 5: Put the required controls in a sidebar.
 # Collect customer_name, product, quantity, fulfillment and show_chart.
 # Keep quantity an integer from 1 through 30.
+with st.sidebar:
+    st.header("Order Options")
+    customer_name = st.text_input("Customer Name")
+    product = st.selectbox("Product", list(menu.keys()))
+    quantity = st.number_input(
+        "Quantity", 
+        min_value=1,
+        max_value=30,
+        value=1,
+        step=1
+    )
+    fulfillment = st.radio("Fulfillment", ["Pickup", "Delivery"])
+    show_chart = st.checkbox("Show sample sales chart", value=True)
 
 
 # TODO 4 - Step 6: Calculate unit_price, subtotal and discounted_subtotal.
