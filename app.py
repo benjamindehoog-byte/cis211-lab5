@@ -61,7 +61,7 @@ subtotal = unit_price * quantity
 discounted_subtotal = apply_discount(subtotal)
 discount_amount = subtotal - discounted_subtotal
 if fulfillment == "Pickup":
-    delivery_fee = o.o
+    delivery_fee = 0.0
 else:
     delivery_fee = shipping_fee(subtotal)
 total = discounted_subtotal + delivery_fee
