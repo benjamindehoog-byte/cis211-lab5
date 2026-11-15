@@ -32,7 +32,6 @@ def shipping_fee(subtotal):
   
 st.title("Bright Bakery Interactive Order Calculator")
 st.caption("A class practice app that calculates a quote.")
-st.info("Starter file loaded. Complete the TODO sections before submitting.")
 
 # TODO 3 - Step 5: Put the required controls in a sidebar.
 # Collect customer_name, product, quantity, fulfillment and show_chart.
