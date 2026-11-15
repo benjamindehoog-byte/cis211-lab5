@@ -1,6 +1,6 @@
 # CIS 211 Lab 5 - Bright Bakery Interactive Order Calculator
-# Complete the TODO sections using the Lab 5 instructions.
-# Add at least THREE explanatory comments of your own.
+# Completed the TODO sections.
+# Added several comments to the code.
 
 import streamlit as st
 
@@ -33,7 +33,6 @@ def shipping_fee(subtotal):
 st.title("Bright Bakery Interactive Order Calculator")
 st.caption("A class practice app that calculates a quote.")
 
-# TODO 3 - Step 5: Put the required controls in a sidebar.
 # Collect customer_name, product, quantity, fulfillment and show_chart.
 # Keep quantity an integer from 1 through 30.
 with st.sidebar:
@@ -51,21 +50,21 @@ with st.sidebar:
     show_chart = st.checkbox("Show sample sales chart", value=True)
 
 
-# TODO 4 - Step 6: Calculate unit_price, subtotal and discounted_subtotal.
 # Call your functions. Calculate discount_amount, delivery_fee and total.
 # Pickup costs 0; Delivery uses shipping_fee(subtotal).
+# The selected product is used as a key in the menu dictionary to find its unit price.
 
 unit_price = menu[product]
 subtotal = unit_price * quantity
 discounted_subtotal = apply_discount(subtotal)
 discount_amount = subtotal - discounted_subtotal
+# Delivery price is based on the original subtotal, before any discount is applied.
 if fulfillment == "Pickup":
     delivery_fee = 0.0
 else:
     delivery_fee = shipping_fee(subtotal)
 total = discounted_subtotal + delivery_fee
 
-# TODO 5 - Step 7: Show the quote in two columns with dollars to 2 decimals.
 # Include product, quantity, unit price, fulfillment, subtotal, discount,
 # delivery fee and final total. Keep this outside the button block.
 st.header("Your Order Quote")
@@ -83,15 +82,16 @@ with right:
     st.write(f"Delivery Fee: ${delivery_fee:.2f}")
     st.write(f"Final Total: ${total:.2f}")
 
-# TODO 6 - Step 8: Build and display the menu table from the menu dictionary.
 # Add a clearly labeled fictional sample-sales chart controlled by show_chart.
 st.header("Bakery Menu")
 
+# I didn't like how the menu was showing, so I created a formatted menu. 
 formatted_menu = {
     product: f"${price:.2f}"
     for product, price in menu.items()
 }
 
+# Again, didn't like how the table was showing, so added headers for easier viewing. 
 st.table({
     "Product": list(formatted_menu.keys()),
     "Price": list(formatted_menu.values())
@@ -100,14 +100,14 @@ st.header("Fictional Sample Sales")
 if show_chart:
     st.bar_chart(sample_sales, x="Product", y="Units sold")
 
-# TODO 7 - Step 9: Add a Check quote button.
 # Warn if customer_name is blank or spaces only. Otherwise show a check message.
 # Do not claim that an order was saved, submitted or paid for.
+# Strip removes extra spaces, so a blank name won't pass the validation check.
 if st.button("Check Quote"):
     if not customer_name.strip():
         st.warning("Please enter your name before checking the quote.")
     else:
         st.success("Quote checked successfully. This is only an estimate; no order has been placed.")
 
-# TODO 8: Test, add your own comments and remove the starter info message.
-# Do not upload your submission report or screenshots to this public repository.
+# Tested!
+# Not uploading my submission report or screenshots to this public repository.
