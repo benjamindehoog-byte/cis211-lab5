@@ -59,6 +59,15 @@ with st.sidebar:
 # Call your functions. Calculate discount_amount, delivery_fee and total.
 # Pickup costs 0; Delivery uses shipping_fee(subtotal).
 
+unit_price = menu[product]
+subtotal = unit_price * quantity
+discounted_subtotal = apply_discount(subtotal)
+discount_amount = subtotal - discounted_subtotal
+if fulfillment == "Pickup":
+    delivery_fee = o.o
+else:
+    delivery_fee = shipping_fee(subtotal)
+total = discounted_subtotal + delivery_fee
 
 # TODO 5 - Step 7: Show the quote in two columns with dollars to 2 decimals.
 # Include product, quantity, unit price, fulfillment, subtotal, discount,
